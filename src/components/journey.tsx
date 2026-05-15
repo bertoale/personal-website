@@ -8,7 +8,7 @@ import { journey } from "@/data/journey";
 export default function CareerJourney() {
   return (
     <motion.div
-      className="space-y-10"
+      className=""
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: "easeOut" }}

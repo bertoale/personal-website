@@ -5,60 +5,64 @@ import { skill } from "@/data/skill";
 export default function SkillsSection() {
   return (
     <motion.section
-      className=""
+      className="w-full max-w-5xl mx-auto"
       initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
-      <div className="">
+      <div className="py-8 md:py-12">
         <motion.div
-          className="text-center py-6"
+          className="text-center pb-8"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.7 }}
         >
-          <h1 className="font-extrabold text-3xl">Tech Stacks & Tools</h1>
+          <h1 className="font-extrabold text-2xl md:text-3xl lg:text-4xl tracking-tight">
+            Tech Stacks & Tools
+          </h1>
         </motion.div>
 
         <motion.ul
-          className="grid w-full gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2"
+          // Grid dengan justify-center untuk menengahkan sisa item di baris terakhir
+          className="flex flex-wrap justify-center gap-3 w-full"
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
           variants={{
             hidden: {},
             visible: {
               transition: {
-                staggerChildren: 0.1,
+                staggerChildren: 0.05,
               },
             },
           }}
         >
-          {skill.map((skill, idx) => (
+          {skill.map((item) => (
             <motion.li
-              key={skill.name}
+              key={item.name}
+              className="w-[calc(33.333%-12px)] sm:w-[calc(25%-12px)] md:w-[calc(20%-12px)] lg:w-[calc(16.666%-12px)]"
               variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
+                hidden: { opacity: 0, scale: 0.8, y: 20 },
+                visible: { opacity: 1, scale: 1, y: 0 },
               }}
-              transition={{ delay: 0.3 + idx * 0.05, duration: 0.5 }}
+              transition={{ type: "spring", stiffness: 100, damping: 15 }}
             >
-              <Card className="rounded-2xl border p-2">
-                <CardContent className="flex items-center gap-4 p-2">
-                  <div className="flex size-16 items-center justify-center rounded-2xl">
+              {/* Card dibuat tinggi penuh (h-full) agar rapi dalam grid */}
+              <Card className="rounded-xl border shadow-sm hover:shadow-md transition-all h-full bg-card hover:-translate-y-1">
+                <CardContent className="flex flex-col items-center justify-center gap-2 p-3 md:p-4 h-full">
+                  <div className="flex items-center justify-center rounded-xl bg-muted/50 p-2 md:p-3 w-12 h-12 md:w-16 md:h-16">
                     <img
-                      src={skill.icon}
-                      className="h-10 w-10 object-contain"
-                      alt={skill.name}
+                      src={item.icon}
+                      className="w-8 h-8 md:w-10 md:h-10 object-contain drop-shadow-sm"
+                      alt={item.name}
+                      loading="lazy"
                     />
                   </div>
-                  <div>
-                    <h2 className="text-xl font-semibold tracking-tight">
-                      {skill.name}
-                    </h2>
-                    {/* <p className="text-muted-foreground text-sm uppercase">
-                      {skill.role}
-                    </p> */}
-                  </div>
+                  <h2 className="text-xs md:text-sm font-semibold tracking-tight text-center line-clamp-1 w-full text-foreground/80">
+                    {item.name}
+                  </h2>
                 </CardContent>
               </Card>
             </motion.li>
