@@ -42,14 +42,16 @@ export default function CareerJourney() {
                 key={index}
                 className="relative flex items-center"
                 initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.2 + index * 0.15, duration: 0.6 }}
               >
                 {/* Year Badge (centered) */}
                 <motion.div
                   className="absolute left-1/2 -translate-x-1/2 -top-5"
                   initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ delay: 0.3 + index * 0.15, duration: 0.4 }}
                 >
                   <Badge
@@ -64,7 +66,8 @@ export default function CareerJourney() {
                 <motion.div
                   className={`absolute left-1/2 -translate-x-1/2 flex h-10 w-10 items-center justify-center rounded-full border-2 border-background ${item.color} hidden lg:flex`}
                   initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
                   transition={{ delay: 0.4 + index * 0.15, duration: 0.4 }}
                 >
                   {item.icon}
@@ -76,7 +79,8 @@ export default function CareerJourney() {
                     isLeft ? "pr-10 text-right" : "pl-10 text-left ml-auto"
                   } max-lg:w-full max-lg:pl-0 max-lg:pr-0 max-lg:text-left`}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ delay: 0.5 + index * 0.15, duration: 0.5 }}
                 >
                   <Card className="hover:border-primary/40 transition-all hover:shadow-md">

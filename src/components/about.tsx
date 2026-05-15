@@ -79,7 +79,8 @@ export default function EducationCard() {
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 gap-4"
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true }}
             variants={{
               hidden: {},
               visible: {
@@ -95,7 +96,8 @@ export default function EducationCard() {
               return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
                 >

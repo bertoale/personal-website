@@ -30,14 +30,16 @@ export default function HeroSection() {
           <motion.div
             className="flex flex-col items-center text-center lg:items-start lg:text-left"
             initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             {badge && <Badge variant="outline">{badge}</Badge>}
             <motion.h1
               className="my-6 text-pretty text-4xl font-bold lg:text-6xl"
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.7 }}
             >
               {heading}
@@ -45,7 +47,8 @@ export default function HeroSection() {
             <motion.p
               className="text-justify text-muted-foreground mb-8 max-w-screen lg:text-xl"
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.7 }}
             >
               {description}
@@ -53,7 +56,8 @@ export default function HeroSection() {
             <motion.div
               className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.6, duration: 0.7 }}
             >
               {/* {buttons.primary && (
@@ -76,7 +80,8 @@ export default function HeroSection() {
             alt={image.alt}
             className="max-h-full w-full rounded-md object-contain"
             initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.5, duration: 0.7 }}
           />
         </div>
