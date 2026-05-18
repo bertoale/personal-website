@@ -24,8 +24,8 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="pt-20">
-      <div>
+    <section className="pt-20 px-6">
+      <div className="container mx-auto">
         <div className="grid items-center gap-8 lg:grid-cols-2">
           <motion.div
             className="flex flex-col items-center text-center lg:items-start lg:text-left"
@@ -36,7 +36,7 @@ export default function HeroSection() {
           >
             {badge && <Badge variant="outline">{badge}</Badge>}
             <motion.h1
-              className="my-6 text-pretty text-4xl font-bold lg:text-6xl"
+              className="my-6 text-pretty text-4xl font-bold lg:text-6xl text-primary"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -45,7 +45,7 @@ export default function HeroSection() {
               {heading}
             </motion.h1>
             <motion.p
-              className="text-justify text-muted-foreground mb-8 max-w-screen lg:text-xl"
+              className="text-justify text-muted-foreground mb-1 max-w-screen lg:text-xl"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -66,7 +66,7 @@ export default function HeroSection() {
                 </Button>
               )} */}
               {buttons.secondary && (
-                <Button asChild variant="outline" className="w-full sm:w-auto">
+                <Button asChild variant="outline" className="w-full sm:w-auto mb-8">
                   <a href={buttons.secondary.url}>
                     {buttons.secondary.text}
                     <ArrowRight className="size-4" />
@@ -78,7 +78,7 @@ export default function HeroSection() {
           <motion.img
             src={image.src}
             alt={image.alt}
-            className="max-h-full w-full rounded-md object-contain"
+            className="max-h-full w-full rounded-md object-contain p-8"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}

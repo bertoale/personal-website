@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { journey } from "@/data/journey";
 export default function CareerJourney() {
   return (
+    <div className="pb-6">
     <motion.div
       className=""
       initial={{ opacity: 0, y: 40 }}
@@ -20,7 +21,7 @@ export default function CareerJourney() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.7 }}
       >
-        <h2 className="font-extrabold text-3xl"> My Journey</h2>
+        <h2 className="font-extrabold text-3xl text-primary"> My Journey</h2>
       </motion.div>
 
       {/* Timeline Container */}
@@ -101,5 +102,6 @@ export default function CareerJourney() {
         </div>
       </div>
     </motion.div>
+    </div>
   );
 }

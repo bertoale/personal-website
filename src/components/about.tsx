@@ -4,6 +4,7 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { GraduationCap, User, LocateIcon, Mail } from "lucide-react";
 import { motion } from "framer-motion";
+import { div } from "framer-motion/client";
 
 const cardItems = [
   { icon: User, label: "Name", value: "Albert" },
@@ -14,6 +15,8 @@ const cardItems = [
 
 export default function EducationCard() {
   return (
+    <div className="bg-gray-200 w-full overflow-hidden">
+    <div className="container mx-auto px-4 pb-6">
     <motion.div
       className=""
       initial={{ opacity: 0, y: 40 }}
@@ -26,7 +29,7 @@ export default function EducationCard() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.7 }}
       >
-        <h2 className="font-extrabold text-3xl">About Me</h2>
+        <h2 className="font-extrabold text-3xl text-primary">About Me</h2>
         {/* <p className="text-muted-foreground">Description lorem ipsum</p> */}
       </motion.div>
 
@@ -34,7 +37,7 @@ export default function EducationCard() {
         <motion.img
           src="https://rockandrollglobe.com/wp-content/uploads/2022/09/image3A50540_Glitch.jpg"
           alt="alt"
-          className="h-full w-full object-cover rounded-md min-h-[100px]"
+          className="h-full w-full object-cover rounded-md min-h-[100px] grayscale-100"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.7 }}
@@ -126,5 +129,7 @@ export default function EducationCard() {
         </motion.div>
       </div>
     </motion.div>
+    </div>
+    </div>
   );
 }
